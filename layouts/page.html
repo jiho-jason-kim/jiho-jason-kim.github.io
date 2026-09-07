@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{ partial "page-heading.html" . }}
+<div class="reading-layout">
+  <article class="prose">{{ .Content }}</article>
+  {{ if .Fragments.Headings }}<aside class="page-aside"><nav class="on-this-page" aria-label="On this page"><p class="eyebrow">On this page</p>{{ .TableOfContents }}</nav></aside>{{ end }}
+</div>
+{{ end }}

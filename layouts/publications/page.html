@@ -1,0 +1,28 @@
+{{ define "main" }}
+<a class="back-link" href="{{ "publications/" | relURL }}"><span aria-hidden="true">←</span> All publications</a>
+<header class="page-heading detail-heading">
+  <p class="eyebrow">{{ .Params.work_type }}{{ with .Params.year }} · {{ . }}{{ end }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ partial "publication-authors.html" . }}
+  <p class="venue">{{ .Params.venue }}</p>
+  {{ partial "publication-resources.html" . }}
+</header>
+<div class="reading-layout">
+  <article class="prose">
+    {{ if .Params.sample }}<p class="sample-note">Illustrative publication. Replace all details and resource links before publishing.</p>{{ end }}
+    {{ with .Params.abstract }}<h2 id="abstract">{{ $.Params.abstract_label | default "Abstract" }}</h2><p>{{ . }}</p>{{ end }}
+    {{ .Content }}
+    {{ with .Params.citation }}<h2 id="citation">Citation</h2><p>Select and copy this BibTeX citation.</p><pre><code>{{ . }}</code></pre>{{ end }}
+  </article>
+  <aside class="page-aside">
+    <div class="on-this-page">
+      <p class="eyebrow">Publication details</p>
+      <dl class="fact-list">
+        {{ with .Params.year }}<dt>Year</dt><dd>{{ . }}</dd>{{ end }}
+        <dt>Type</dt><dd>{{ .Params.work_type }}</dd>
+        <dt>Venue / status</dt><dd>{{ .Params.venue }}</dd>
+      </dl>
+    </div>
+  </aside>
+</div>
+{{ end }}

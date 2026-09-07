@@ -1,0 +1,12 @@
+<article class="publication" aria-labelledby="pub-{{ .File.ContentBaseName }}">
+  <div class="publication-year">{{ .Params.year }}</div>
+  <div>
+    <h3 id="pub-{{ .File.ContentBaseName }}"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ partial "publication-authors.html" . }}
+    <p class="venue">{{ .Params.venue }}</p>
+    {{ if .Params.sample }}<span class="eyebrow">Illustrative entry</span>{{ end }}
+    {{ partial "publication-resources.html" . }}
+    {{ with .Params.abstract }}<details class="disclosure"><summary>{{ $.Params.abstract_label | default "Abstract" }}</summary><div class="abstract">{{ . | markdownify }}</div></details>{{ end }}
+    {{ with .Params.citation }}<details class="disclosure"><summary>Citation · BibTeX</summary><pre><code>{{ . }}</code></pre></details>{{ end }}
+  </div>
+</article>

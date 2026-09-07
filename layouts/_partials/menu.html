@@ -1,0 +1,11 @@
+<ul class="menu">
+{{- $page := . -}}
+{{- range site.Menus.main -}}
+  {{- $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) -}}
+  {{- if and .Page (eq .Page.Section $page.Section) (ne $page.Section "") }}{{ $active = true }}{{ end -}}
+  {{- $url := .URL -}}
+  {{- /* Keep the CV file path in the shared profile, including on project Pages sites. */ -}}
+  {{- if .Params.download }}{{ $url = partial "link-url.html" site.Data.profile.cv }}{{ end -}}
+  <li><a href="{{ $url }}"{{ if .Params.download }} download{{ else if $active }} aria-current="{{ if eq .Page $page }}page{{ else }}true{{ end }}"{{ end }}>{{ .Name }}</a></li>
+{{- end -}}
+</ul>

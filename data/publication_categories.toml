@@ -1,0 +1,14 @@
+# IDs must match the category field in publication Markdown files.
+[[categories]]
+id = 'journal'
+label = 'Journal articles'
+[[categories]]
+id = 'conference'
+label = 'Conference papers'
+[[categories]]
+id = 'preprint'
+label = 'Preprints'
+empty_text = 'Preprints of published or forthcoming papers are linked from their main entries.'
+[[categories]]
+id = 'working-paper'
+label = 'Manuscripts in preparation'

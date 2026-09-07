@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ partial "page-heading.html" . }}
+{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+{{ $publications := .RegularPages }}
+{{ $categories := site.Data.publication_categories.categories }}
+{{ $validCategories := slice }}{{ range $categories }}{{ $validCategories = $validCategories | append .id }}{{ end }}
+{{/* Fail visibly when a typo would otherwise hide a publication. */}}
+{{ range $publications }}{{ if not (in $validCategories .Params.category) }}{{ errorf "Unknown publication category %q in %s" .Params.category .File.Path }}{{ end }}{{ end }}
+{{/* Combine peer-reviewed work. Manuscript detail pages remain available through their projects. */}}
+{{ $entries := where $publications "Params.category" "in" (slice "journal" "conference") }}
+<section class="publication-section" aria-labelledby="papers-heading">
+  <h2 id="papers-heading">Peer-reviewed publications <span class="count">{{ len $entries }}</span></h2>
+  {{ range sort $entries "Params.year" "desc" }}
+    {{ partial "publication-entry.html" . }}
+  {{ else }}
+    <p class="authors">No publications listed yet.</p>
+  {{ end }}
+</section>
+{{ end }}

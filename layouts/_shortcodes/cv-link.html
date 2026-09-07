@@ -1,0 +1,5 @@
+{{/* Use this shortcode for a CV download link inside Markdown content. */}}
+{{- $label := .Get "text" | default "Download my CV" -}}
+{{- with site.Data.profile.cv -}}
+<a href="{{ partial "link-url.html" . }}" download>{{ $label }}</a>
+{{- end -}}

@@ -1,0 +1,13 @@
+{{- /* Empty resource fields produce no links. Keep unavailable resources empty. */ -}}
+{{- $page := .page -}}
+{{- $hasLinks := false -}}
+{{- range .fields }}{{ if index $page.Params .key }}{{ $hasLinks = true }}{{ end }}{{ end -}}
+{{- if $hasLinks }}
+<ul class="resource-links" aria-label="Resources for {{ $page.Title }}">
+  {{ range .fields }}{{ $field := . }}{{ with index $page.Params .key }}
+    {{ $url := . }}
+    {{ if and (eq $field.key "doi") (not (strings.HasPrefix $url "http")) }}{{ $url = printf "https://doi.org/%s" $url }}{{ end }}
+    <li><a href="{{ partial "link-url.html" $url }}">{{ $field.label }} <span aria-hidden="true">↗</span></a></li>
+  {{ end }}{{ end }}
+</ul>
+{{ end -}}

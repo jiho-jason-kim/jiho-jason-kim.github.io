@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Data.profile.name }} — home">
+      <span class="monogram" aria-hidden="true">{{ site.Data.profile.initials }}</span>
+      <span>{{ site.Data.profile.name }}</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">{{ partial "menu.html" . }}</nav>
+    {{/* Native details supplies keyboard and touch support without a script. */}}
+    <details class="mobile-menu">
+      <summary>Menu <span aria-hidden="true">☰</span></summary>
+      <nav aria-label="Mobile navigation">{{ partial "menu.html" . }}</nav>
+    </details>
+  </div>
+</header>
+{{ if site.Params.sampleMode }}
+<div class="sample-banner"><div class="container"><span class="sample-label">Example profile</span> All biographical details and work are placeholders. Replace before publishing.</div></div>
+{{ end }}

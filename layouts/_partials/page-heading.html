@@ -1,0 +1,5 @@
+<header class="page-heading">
+  <p class="eyebrow">{{ .Params.eyebrow | default "Academic profile" }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+</header>

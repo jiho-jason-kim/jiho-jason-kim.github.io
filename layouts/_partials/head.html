@@ -1,0 +1,30 @@
+{{- $title := printf "%s | %s" .Title site.Data.profile.name -}}
+{{- if .IsHome }}{{ $title = printf "%s | Academic profile" site.Data.profile.name }}{{ end -}}
+{{- $description := .Description | default site.Params.description -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ site.Data.profile.name }}">
+<meta name="theme-color" content="#fbfcfb">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if or site.Params.sampleMode site.Params.noIndex (eq .Kind "404") }}<meta name="robots" content="noindex, follow">{{ end }}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Data.profile.name }}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="{{ if site.Params.socialImage }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ with site.Params.socialImage }}
+<meta property="og:image" content="{{ . | absURL }}">
+<meta name="twitter:image" content="{{ . | absURL }}">
+<meta property="og:image:alt" content="Academic profile of {{ site.Data.profile.name }}">
+{{ end }}
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+{{- /* Hugo builds one local, fingerprinted stylesheet. No font requests or JavaScript. */ -}}
+{{ with resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}

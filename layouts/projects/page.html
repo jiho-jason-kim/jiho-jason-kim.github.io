@@ -1,0 +1,28 @@
+{{ define "main" }}
+<a class="back-link" href="{{ "projects/" | relURL }}"><span aria-hidden="true">←</span> All projects</a>
+<header class="page-heading detail-heading">
+  <p class="eyebrow">{{ .Params.work_type }}{{ with .Params.year }} · {{ . }}{{ end }}</p>
+  <h1>{{ .Title }}</h1>
+  <p class="page-description">{{ .Description }}</p>
+  {{ partial "project-resources.html" . }}
+</header>
+<div class="reading-layout">
+  <article class="prose">
+    {{ if .Params.sample }}<p class="sample-note">Illustrative project. Replace all descriptions, figures, and links with your verified work.</p>{{ end }}
+    {{ $page := . }}{{ with .Params.image }}<figure class="project-image"><img src="{{ partial "link-url.html" . }}" alt="{{ $page.Params.image_alt }}" width="800" height="450">{{ with $page.Params.image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+    {{ .Content }}
+  </article>
+  <aside class="page-aside">
+    <div class="on-this-page">
+      <p class="eyebrow">Project details</p>
+      {{/* Missing dates, tools, and status remain absent instead of becoming claims. */}}
+      <dl class="fact-list">
+        {{ with .Params.role }}<dt>My role</dt><dd>{{ . }}</dd>{{ end }}
+        {{ with .Params.status }}<dt>Status</dt><dd>{{ . }}</dd>{{ end }}
+        {{ with .Params.methods }}<dt>Methods</dt><dd>{{ delimit . ", " }}</dd>{{ end }}
+        {{ with .Params.technologies }}<dt>Technologies</dt><dd>{{ delimit . ", " }}</dd>{{ end }}
+      </dl>
+    </div>
+  </aside>
+</div>
+{{ end }}

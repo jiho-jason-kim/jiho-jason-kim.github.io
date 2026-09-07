@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ partial "page-heading.html" . }}
+<div class="prose">{{ .Content }}</div>
+<ul class="simple-list">{{ range .Pages }}<li><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Description }}</p></li>{{ end }}</ul>
+{{ end }}

@@ -1,0 +1,12 @@
+{{/* Preserve author order and display contribution notes separately. */}}
+<p class="authors">
+  {{- range $index, $author := .Params.authors -}}
+    {{- if $index }}, {{ end -}}
+    {{- if eq (strings.TrimSuffix "*" $author) site.Data.profile.name -}}
+      <strong>{{ $author }}</strong>
+    {{- else -}}
+      {{ $author }}
+    {{- end -}}
+  {{- end -}}
+</p>
+{{ with .Params.author_note }}<p class="authors">{{ . }}</p>{{ end }}

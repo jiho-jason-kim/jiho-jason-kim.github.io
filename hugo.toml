@@ -1,0 +1,64 @@
+# REPLACE: Set this URL before publishing. The Pages workflow also sets it during deployment.
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Jiho Kim'
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term', 'RSS']
+summaryLength = 30
+
+[params]
+  description = 'Jiho Kim is a PhD student at the University of Wisconsin–Madison researching data visualization, perception, accessibility, and human-computer interaction.'
+  sampleMode = false
+  noIndex = true # Set false after configuring the final baseURL for publication.
+  # Optional: Add a local social image path, such as images/social.jpg.
+  socialImage = ''
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+[outputs]
+  home = ['HTML']
+  section = ['HTML']
+  page = ['HTML']
+
+[sitemap]
+  filename = 'sitemap.xml'
+
+# The same menu supplies the desktop and mobile navigation.
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menus.main]]
+  name = 'Research'
+  pageRef = '/research'
+  weight = 20
+[[menus.main]]
+  name = 'Publications'
+  pageRef = '/publications'
+  weight = 30
+[[menus.main]]
+  name = 'Projects'
+  pageRef = '/projects'
+  weight = 40
+[[menus.main]]
+  name = 'Teaching'
+  pageRef = '/teaching'
+  weight = 50
+[[menus.main]]
+  name = 'CV'
+  identifier = 'cv'
+  params = { download = true }
+  weight = 60
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 70
+[[menus.main]]
+  name = 'Contact'
+  pageRef = '/contact'
+  weight = 80

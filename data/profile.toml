@@ -1,0 +1,32 @@
+# Shared personal details. The current biography follows the August 2026 CV.
+name = 'Jiho Kim'
+initials = 'JK'
+role = 'PhD Student in Computer Sciences'
+university = 'University of Wisconsin–Madison'
+department = 'Department of Computer Sciences'
+location = 'Madison, WI, United States'
+email = 'kim999@wisc.edu'
+researchArea = 'Data visualization & human-computer interaction'
+photo = 'images/profile_square.png'
+photoAlt = 'Portrait of Jiho Kim'
+photoCaption = ''
+cv = 'files/cv.pdf'
+cvUpdated = 'August 2026'
+
+# Empty URLs are hidden. Keep each public profile URL current.
+[[socials]]
+  name = 'Google Scholar'
+  url = 'https://scholar.google.com/citations?user=Dhu5J7YAAAAJ'
+  placeholder = false
+[[socials]]
+  name = 'GitHub'
+  url = 'https://github.com/captainhoji'
+  placeholder = false
+[[socials]]
+  name = 'LinkedIn'
+  url = '' # Confirm the public profile URL before displaying this link.
+  placeholder = false
+[[socials]]
+  name = 'ORCID'
+  url = 'https://orcid.org/0000-0002-2289-0927'
+  placeholder = false

@@ -1,0 +1,6 @@
+<ul class="social-links" aria-label="Academic and professional profiles">
+  {{ range site.Data.profile.socials }}{{ if .url }}
+  <li><a href="{{ .url }}"{{ if .placeholder }} title="Example link: replace with your {{ .name }} profile"{{ end }}>{{ .name }}<span aria-hidden="true"> ↗</span>{{ if .placeholder }}<span class="sr-only"> (example link, replace with your profile)</span>{{ end }}</a></li>
+  {{ end }}{{ end }}
+  {{ with site.Data.profile.email }}<li><a href="{{ "contact/" | relURL }}#email">Email<span aria-hidden="true"> →</span></a></li>{{ end }}
+</ul>

@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{ partial "page-heading.html" . }}
+<div class="contact-layout">
+  <section aria-label="Email and affiliation">
+    {{ with site.Data.profile.email }}
+    {{/* Render readable address words without putting a raw address in HTML or a mailto URL. */}}
+    <div id="email">
+      <p class="eyebrow">Email</p>
+      <p class="contact-email">{{ replace (replace . "@" " [at] ") "." " [dot] " }}</p>
+      <p class="email-instructions">Replace [at] with @ and [dot] with a period.</p>
+    </div>
+    {{ end }}
+    <div class="prose">{{ .Content }}</div>
+    <div class="contact-details"><p class="eyebrow">Affiliation</p><p>{{ site.Data.profile.department }}<br>{{ site.Data.profile.university }}<br>{{ site.Data.profile.location }}</p></div>
+  </section>
+  <section class="contact-details" aria-labelledby="profiles-title"><h2 id="profiles-title">Find my work</h2>{{ partial "social-links.html" . }}{{ if site.Params.sampleMode }}<p class="sample-note">Replace the example email and service homepage links with your contact details and profile URLs.</p>{{ end }}</section>
+</div>
+{{ end }}
