@@ -1,5 +1,5 @@
 # REPLACE: Set this URL before publishing. The Pages workflow also sets it during deployment.
-baseURL = 'https://example.org/'
+baseURL = 'https://jiho-jason-kim.github.io/'
 languageCode = 'en-us'
 title = 'Jiho Kim'
 enableRobotsTXT = true
@@ -9,7 +9,7 @@ summaryLength = 30
 [params]
   description = 'Jiho Kim is a PhD student at the University of Wisconsin–Madison researching data visualization, perception, accessibility, and human-computer interaction.'
   sampleMode = false
-  noIndex = true # Set false after configuring the final baseURL for publication.
+  noIndex = false # Set false after configuring the final baseURL for publication.
   # Optional: Add a local social image path, such as images/social.jpg.
   socialImage = ''
 

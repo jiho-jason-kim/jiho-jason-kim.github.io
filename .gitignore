@@ -1,7 +1,27 @@
+# Hugo generates these files during builds.
 /public/
 /resources/
 /.hugo_build.lock
 /.hugo_cache/
-/.DS_Store
-**/.DS_Store
+
+# Keep editorial notes and local tool settings on this computer.
+/CONTENT_NOTES.md
+/.codex/
+/.agents/
+/.idea/
+/.vscode/
+
+# Ignore operating system files and temporary output.
+.DS_Store
+Thumbs.db
 /tmp/
+__pycache__/
+*.py[cod]
+*.swp
+*.swo
+*~
+
+# Keep local environment values out of Git.
+.env
+.env.*
+!.env.example

@@ -1,4 +1,5 @@
 <footer class="site-footer container">
   <div><span class="footer-name">{{ site.Data.profile.name }}</span><span class="footer-dot" aria-hidden="true">·</span>{{ site.Data.profile.university }}</div>
-  <div class="footer-meta"><span>© {{ now.Year }}</span><a href="{{ "contact/" | relURL }}">Contact</a><span>Built with Hugo</span></div>
+  {{/* Keep the site credit visible on every page. */}}
+  <div class="footer-meta"><span>© {{ now.Year }}</span><a href="{{ "contact/" | relURL }}">Contact</a><span>Built with Hugo, with help from GPT-6 Astra</span></div>
 </footer>
