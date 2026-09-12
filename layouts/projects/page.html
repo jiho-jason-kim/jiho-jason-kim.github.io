@@ -9,6 +9,7 @@
 <div class="reading-layout">
   <article class="prose">
     {{ if .Params.sample }}<p class="sample-note">Illustrative project. Replace all descriptions, figures, and links with your verified work.</p>{{ end }}
+    {{ if .Params.lba_simulator }}{{ partial "lba-simulator.html" . }}{{ end }}
     {{ $page := . }}{{ with .Params.image }}<figure class="project-image"><img src="{{ partial "link-url.html" . }}" alt="{{ $page.Params.image_alt }}" width="800" height="450">{{ with $page.Params.image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
     {{ .Content }}
   </article>

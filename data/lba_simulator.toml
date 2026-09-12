@@ -1,0 +1,7 @@
+title = "Linear Ballistic Accumulator Simulator"
+shortDescription = "An interactive tool for simulating choices and response times with a two-accumulator Linear Ballistic Accumulator model."
+url = "https://jiho-jason-kim.github.io/lba-simulator/"
+source = "https://github.com/jiho-jason-kim/lba-simulator"
+image = "LBA_simulator_screenshot.png"
+imageAlt = "Linear Ballistic Accumulator Simulator showing parameter controls, a live evidence accumulation diagram, and response-time results"
+

@@ -42,14 +42,16 @@ class Document(HTMLParser):
             self.meta[attrs.get("name", attrs.get("property", ""))] = attrs.get("content", "")
         if tag == "link" and attrs.get("rel") == "canonical":
             self.canonical = attrs.get("href", "")
+        # Some tools share the site's host but live outside this Hugo build.
+        check_target = attrs.get("data-external") != "true"
         for key in ("href", "src", "poster"):
             if key in attrs:
-                self.references.append(attrs[key])
+                self.references.append((attrs[key], check_target))
         if tag == "object" and attrs.get("data"):
-            self.references.append(attrs["data"])
+            self.references.append((attrs["data"], True))
         for candidate in attrs.get("srcset", "").split(","):
             if candidate.strip():
-                self.references.append(candidate.strip().split()[0])
+                self.references.append((candidate.strip().split()[0], True))
 
     def handle_endtag(self, tag):
         if tag == "title":
@@ -118,8 +120,9 @@ def check_site(root, base_url):
         expected_canonical = source_url
         if document.canonical != expected_canonical:
             failures.append(f"{relative}: canonical URL should be {expected_canonical}")
-        for reference in document.references:
-            resolve(reference, source_url, relative)
+        for reference, check_target in document.references:
+            if check_target:
+                resolve(reference, source_url, relative)
 
     # Sitemap and robots URLs must use the same deployment prefix as the HTML.
     sitemap = root / "sitemap.xml"

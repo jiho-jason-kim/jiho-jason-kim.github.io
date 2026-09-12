@@ -11,6 +11,7 @@ abstract: "Experiments compare visualization interpretation with and without a c
 pdf: "https://arxiv.org/pdf/2608.10320"
 preprint: "https://arxiv.org/abs/2608.10320"
 project: "/projects/divided-attention/"
+lba_simulator: true
 featured: true
 featured_order: 1
 citation: |

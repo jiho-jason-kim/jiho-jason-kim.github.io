@@ -11,6 +11,7 @@
   <article class="prose">
     {{ if .Params.sample }}<p class="sample-note">Illustrative publication. Replace all details and resource links before publishing.</p>{{ end }}
     {{ with .Params.abstract }}<h2 id="abstract">{{ $.Params.abstract_label | default "Abstract" }}</h2><p>{{ . }}</p>{{ end }}
+    {{ if .Params.lba_simulator }}{{ partial "lba-simulator.html" . }}{{ end }}
     {{ .Content }}
     {{ with .Params.citation }}<h2 id="citation">Citation</h2><p>Select and copy this BibTeX citation.</p><pre><code>{{ . }}</code></pre>{{ end }}
   </article>

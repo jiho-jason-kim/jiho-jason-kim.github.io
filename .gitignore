@@ -6,6 +6,7 @@
 
 # Keep editorial notes and local tool settings on this computer.
 /CONTENT_NOTES.md
+/LBA/
 /.codex/
 /.agents/
 /.idea/
