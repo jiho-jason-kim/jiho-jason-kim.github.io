@@ -1,0 +1,9 @@
+[chart_type_explainer]
+title = "Chart Type Explainer"
+url = "https://jiho-jason-kim.github.io/Chart-Type-Explainer/"
+description = "You can select or create a chart specification, choose a text explanation strategy, and compare charts using a specification-based distance metric. The tool builds on our CHI 2023 research about explaining unfamiliar charts to blind and low-vision users."
+
+[accessible_sampling]
+title = "Accessible Sampling"
+url = "https://jiho-jason-kim.github.io/accessible-sampling/"
+description = "You can select, draw, or import a line chart and choose a cognitive model to select informative data points. The tool shows how the model reconstructs the full trend from those samples. This prototype explores how shorter data sequences can support chart comprehension for blind and low-vision users."

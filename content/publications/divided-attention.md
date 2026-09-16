@@ -11,7 +11,6 @@ abstract: "Experiments compare visualization interpretation with and without a c
 pdf: "https://arxiv.org/pdf/2608.10320"
 preprint: "https://arxiv.org/abs/2608.10320"
 project: "/projects/divided-attention/"
-lba_simulator: true
 featured: true
 featured_order: 1
 citation: |
@@ -38,3 +37,5 @@ I designed controlled experiments on perception, mapping, and comprehension unde
 Forthcoming at IEEE VIS 2026. The [author-submitted preprint](https://arxiv.org/abs/2608.10320) identifies IEEE Transactions on Visualization and Computer Graphics as the forthcoming journal venue.
 
 The PDF link opens the preprint. Final journal volume, pages, and DOI are not listed here.
+
+{{< lba-simulator variant="publication" >}}

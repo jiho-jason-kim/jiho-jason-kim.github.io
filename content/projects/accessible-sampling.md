@@ -28,3 +28,5 @@ The approach uses perceptual optimization to select samples for chart analysis.
 The work forms the manuscript *Machine teaching for accessible line chart sampling*, which is in preparation.
 
 [View the manuscript entry]({{< relref "/publications/accessible-line-chart-sampling" >}}).
+
+{{< research-tool "accessible_sampling" >}}

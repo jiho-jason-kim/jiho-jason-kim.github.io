@@ -8,7 +8,6 @@ status: "Paper forthcoming · IEEE VIS 2026"
 role: "Graduate researcher"
 methods: ["Controlled experiments","Cognitive process modeling","Linear Ballistic Accumulator"]
 paper: "/publications/divided-attention/"
-lba_simulator: true
 sample: false
 draft: false
 ---
@@ -29,3 +28,5 @@ The work combines experiments on visualization interpretation with a model of th
 The research identified increased reliance on expectation-aligned visualization designs under divided attention.
 
 [Read the paper and available preprint]({{< relref "/publications/divided-attention" >}}).
+
+{{< lba-simulator >}}

@@ -1,0 +1,16 @@
+{{/* Shared tool details stay in data so both research pages use the same text. */}}
+{{ $key := .Get 0 }}
+{{ with index site.Data.research_tools $key }}
+<section class="simulator-callout" aria-labelledby="tool-{{ $key }}">
+  <div class="simulator-heading">
+    <div>
+      <p class="eyebrow">Interactive research tool</p>
+      <h2 id="tool-{{ $key }}">{{ .title }}</h2>
+    </div>
+  </div>
+  <p class="simulator-summary">{{ .description }}</p>
+  {{ with .url }}<a class="button" href="{{ . }}" target="_blank" rel="noopener noreferrer" data-external="true">Open {{ (index site.Data.research_tools $key).title }} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>{{ end }}
+</section>
+{{ else }}
+  {{ errorf "Unknown research tool %q in %s" $key .Page.File.Path }}
+{{ end }}

@@ -170,7 +170,6 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; font: .8125rem/1.7 ui-mono
 .simulator-preview { display: block; margin: 1.4rem 0; border: 1px solid #cbd5cf; border-radius: 3px; overflow: hidden; background: var(--paper); }
 .simulator-preview:hover { border-color: var(--accent); }
 .simulator-preview img { width: 100%; }
-.prose .simulator-callout h3 { margin: 1.6rem 0 .6rem; font-size: 1.2rem; }
 .simulator-callout p:last-child { margin-bottom: 0; }
 
 /* 7. Contact, footer, and error page. */

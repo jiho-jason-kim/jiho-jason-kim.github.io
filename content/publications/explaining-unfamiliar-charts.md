@@ -36,3 +36,5 @@ I designed strategies for explaining unfamiliar chart types, including treemaps,
 Gyeongri Kim and Jiho Kim contributed equally. The [published paper](https://doi.org/10.1145/3544548.3581139) records this contribution.
 
 [Read the project overview]({{< relref "/projects/chart-explanations" >}}).
+
+{{< research-tool "chart_type_explainer" >}}

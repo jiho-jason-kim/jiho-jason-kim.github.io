@@ -25,3 +25,5 @@ I developed an optimization pipeline that applies machine teaching to accessible
 This manuscript is in preparation. No publication venue or publication year is assigned.
 
 [Explore the research project]({{< relref "/projects/accessible-sampling" >}}).
+
+{{< research-tool "accessible_sampling" >}}

@@ -28,3 +28,5 @@ The project investigates different ways to communicate chart structure through t
 The work was published at ACM CHI 2023. Gyeongri Kim and I contributed equally.
 
 [Read the publication]({{< relref "/publications/explaining-unfamiliar-charts" >}}).
+
+{{< research-tool "chart_type_explainer" >}}

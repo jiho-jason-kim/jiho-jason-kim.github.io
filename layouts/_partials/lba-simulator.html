@@ -1,4 +1,5 @@
 {{- $simulator := site.Data.lba_simulator -}}
+{{- $variant := .variant | default "project" -}}
 <section class="simulator-callout" aria-labelledby="lba-simulator-heading">
   <div class="simulator-heading">
     <div>
@@ -8,13 +9,10 @@
     <a class="button" href="{{ $simulator.url }}" target="_blank" rel="noopener noreferrer" data-external="true">Open LBA Simulator <span aria-hidden="true">↗</span></a>
   </div>
   <p class="simulator-summary">{{ $simulator.shortDescription }}</p>
+  {{ if eq $variant "publication" }}<p>{{ $simulator.publicationDescription }}</p>{{ end }}
   {{/* The preview opens the public simulator and keeps this research page available. */}}
   <a class="simulator-preview" href="{{ $simulator.url }}" target="_blank" rel="noopener noreferrer" data-external="true" aria-label="Open LBA Simulator in a new tab">
     <img src="{{ partial "link-url.html" $simulator.image }}" alt="{{ $simulator.imageAlt }}" width="3804" height="1946" loading="lazy" decoding="async">
   </a>
-  <p>The simulator lets users configure A, b or k, v, s, and t0 for two response accumulators. Parameters can be tied across accumulators. Users can compare multiple simulations, apply a response deadline, and inspect response-time densities and response shares.</p>
-  <p>The live diagram shows starting evidence, thresholds, drift rates, drift variability, nondecision time, and response timing. The app also includes fitted parameters from two experiments in the “Divided Attention Amplifies…” paper accepted to IEEE VIS 2026. Users can inspect condition averages, individual participants, or pooled participant simulations.</p>
-  <h3>Privacy and data handling</h3>
-  <p>The public data uses numbered participant labels. It excludes original participant IDs and source CSV files. Simulations run in the visitor’s browser. Imported files and saved runs remain in the current browser session.</p>
   <p><a href="{{ $simulator.source }}" target="_blank" rel="noopener noreferrer" data-external="true">View the source repository <span aria-hidden="true">↗</span></a></p>
 </section>
