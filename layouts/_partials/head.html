@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
+{{/* Google verifies site ownership from the home page. */}}
+{{ if .IsHome }}<meta name="google-site-verification" content="6Juw0YWvBJTU3Q7q5vympcJjFFLSfMVLO4oJKO_Jnac" />{{ end }}
 <meta name="author" content="{{ site.Data.profile.name }}">
 <meta name="theme-color" content="#fbfcfb">
 <link rel="canonical" href="{{ .Permalink }}">
