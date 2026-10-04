@@ -1,5 +1,7 @@
 {{- $title := printf "%s | %s" .Title site.Data.profile.name -}}
 {{- if .IsHome }}{{ $title = printf "%s | Academic profile" site.Data.profile.name }}{{ end -}}
+{{- /* Optional search titles keep long publication titles intact on the page. */ -}}
+{{- with .Params.seo_title }}{{ $title = . }}{{ end -}}
 {{- $description := .Description | default site.Params.description -}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +12,8 @@
 <meta name="author" content="{{ site.Data.profile.name }}">
 <meta name="theme-color" content="#fbfcfb">
 <link rel="canonical" href="{{ .Permalink }}">
+{{/* Keep sitemap discovery URLs correct for root and subpath deployments. */}}
+<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
 {{ if or site.Params.sampleMode site.Params.noIndex (eq .Kind "404") }}<meta name="robots" content="noindex, follow">{{ end }}
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">

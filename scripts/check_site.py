@@ -124,12 +124,20 @@ def check_site(root, base_url):
             if check_target:
                 resolve(reference, source_url, relative)
 
-    # Sitemap and robots URLs must use the same deployment prefix as the HTML.
+    # Explicit external app links can appear in the sitemap without local files.
+    external_apps = {
+        reference
+        for document in documents.values()
+        for reference, check_target in document.references
+        if not check_target and urlsplit(reference).scheme in ("http", "https")
+    }
+    # All other sitemap entries must resolve within this build.
     sitemap = root / "sitemap.xml"
     if sitemap.exists():
         try:
             for location in ET.parse(sitemap).iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc"):
-                resolve(location.text or "", base_url, "sitemap.xml")
+                if location.text not in external_apps:
+                    resolve(location.text or "", base_url, "sitemap.xml")
         except ET.ParseError as error:
             failures.append(f"Invalid sitemap XML: {error}")
     else:

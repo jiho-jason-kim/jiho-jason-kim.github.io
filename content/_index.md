@@ -1,6 +1,7 @@
 ---
 title: Home
-description: "Jiho Kim studies visualization, perception, accessibility, and human-computer interaction at the University of Wisconsin–Madison."
+seo_title: "Jiho Kim | Data Visualization & HCI Research"
+description: "Jiho Kim, a Computer Sciences PhD student at UW–Madison, researches data visualization, perception, and accessibility. Explore papers and interactive tools."
 eyebrow: Visualization · Perception · Accessibility
 intro: Understanding how people perceive, interpret, and interact with data.
 interests:
