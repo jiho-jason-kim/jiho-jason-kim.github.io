@@ -56,10 +56,13 @@ jobs:
           # A subpath in PR builds catches links that fail on project Pages sites.
           SITE_BASE_URL: ${{ steps.pages.outputs.base_url || 'https://example.org/site-check' }}
         run: |
+          # Pages can report HTTP. Use HTTPS for canonical URLs and sitemap entries.
+          SITE_BASE_URL="https://${SITE_BASE_URL#*://}"
+          SITE_BASE_URL="${SITE_BASE_URL%/}/"
           hugo --gc --minify --panicOnWarning \
-            --baseURL "${SITE_BASE_URL}/" \
+            --baseURL "$SITE_BASE_URL" \
             --cacheDir "${RUNNER_TEMP}/hugo-cache"
-          python3 scripts/check_site.py public --base-url "${SITE_BASE_URL}/"
+          python3 scripts/check_site.py public --base-url "$SITE_BASE_URL"
 
       - name: Upload GitHub Pages artifact
         if: github.event_name != 'pull_request'
